@@ -1,0 +1,59 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+  height:auto;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 15px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+ 
+}
+.form-signin input[type="text"] {
+  margin:15px 0px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-color: rgb(0,101,46);
+}
+.form-signin input[type="password"] {
+  margin-bottom: 15px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-color: rgb(0,101,46);
+}
+/*olvido csu contraceña*/
+
+div.forgetpass{
+	margin-top: 15px;
+}
+
+
+div.forgetpass a{
+	text-decoration: none;
+	color: rgb(0,101,46);
+}
+
+div.forgetpass a:hover{
+	color: rgb(146,189,36);
+}

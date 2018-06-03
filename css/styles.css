@@ -1,0 +1,129 @@
+.banner{
+	width: 100%;
+	height: 400px;
+}
+
+.banner2{
+	width: 100%;
+	height: 300px;
+}
+
+
+.barra{
+	margin: 10px;
+	text-align: left;
+}
+
+.botonIni{
+	height: 10px;
+}
+
+#footer{
+	margin:0px;
+    width: 100%;
+    height: 300px;
+    border: none;
+    padding: 0px;
+    z-index: 0;
+}
+
+.textbox{
+	width: 350px;
+	text-align: left;
+}
+
+.textbox2{
+	width: 250px;
+	text-align: left;
+}
+
+.error{
+	display: none;
+	text-align: center;
+	margin: 0px;
+}
+
+.modalpopup{
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+.modal-cont{
+	position: absolute;
+	top: 50%;
+	margin: 30% 0 0 0;
+	border: none;
+}
+
+.messagePopUp{
+	position: absolute;
+	width: 100%;
+	visibility: visible;
+}
+
+.vertical-menu {
+    width: 210px;
+    height: auto;
+    overflow-y: auto;
+}
+
+.vertical-menu a {
+    background-color: #292c2f;
+    color: white;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.vertical-menu-fondo{
+	background-color: #292c2f;
+}
+
+.content {
+	padding: 5px;
+	position: relative;
+}
+#contentAdmin{
+
+}
+
+.marco{
+	padding: 15px;
+}
+
+.navigationbar{
+	position: relative;
+}
+
+.filabtn{
+	size: 20px;
+}
+
+.btnDelete {
+	color: white;
+	margin: 0 0 0 5px;
+}
+
+.btnEdit{
+	color: white;
+}
+
+.btnCancel {
+	margin: 5 5 5 5px;
+}
+
+.ChartTitle{
+	text-align: center;
+	text-shadow: inherit;
+}
