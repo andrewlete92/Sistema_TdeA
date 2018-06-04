@@ -3,7 +3,7 @@
 	define('host', 'localhost');
 	define('user','root');
 	define('pass', '');
-	define('database','SistemaTdeA');
+	define('database','sistematdea');
 
 	$mysqli = new mysqli(host,user,pass,database);
 	if($mysqli->connect_errno):

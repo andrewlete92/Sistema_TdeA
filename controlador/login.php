@@ -2,16 +2,16 @@
 include_once 'conexion.php';
 
 $users = $mysqli->query("
-  SELECT name,UserType 
-  FROM tblUsers
-  WHERE user = '".$_POST['nomusuario']."'
+  SELECT *
+  FROM vw_login
+  WHERE usuario = '".$_POST['nomusuario']."'
   AND pass = '".$_POST['conusuario']."'
   ");
 
 if($users->num_rows == 1):
   $data = $users->fetch_assoc();
   session_start();
-  echo json_encode(array('error' => false, 'type' => $data['UserType']));
+  echo json_encode(array('error' => false, 'type' => $data['cargo']));
   $_SESSION['loggedin'] = true;
   $_SESSION['username'] = $_POST['nomusuario'];
 else:

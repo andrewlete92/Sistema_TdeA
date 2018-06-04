@@ -5,7 +5,7 @@ mysql_query("INSERT INTO `formulario`(`nombre`, `apellido`, `tipoDocumento`, `no
 or die("Problemas en el insert: ".mysql_error());
 
 
-mysql_query("INSERT INTO `login`(`nombreUsuario`, `contrasena`)
+mysql_query("INSERT INTO `tblUsers`(`nombreUsuario`, `contrasena`)
 	VALUES ('$_REQUEST[txtDocumento]','$_REQUEST[txtContrasena]')", $conexion)
 or die("Problemas en el insert: ".mysql_error());
 echo "Su Registro fue exitoso.";

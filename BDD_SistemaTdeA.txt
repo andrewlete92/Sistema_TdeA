@@ -1,5 +1,53 @@
+CREATE TABLE tblUsers(idUser INT AUTO_INCREMENT PRIMARY KEY, Usuario VARCHAR(100), Pass VARCHAR(50),
+FK_idEmpleado VARCHAR(100))
 CREATE TABLE tblUsers(idUser INT AUTO_INCREMENT PRIMARY KEY, Name VARCHAR (100), LastName VARCHAR (100),
 	     	   User VARCHAR(100), Pass VARCHAR(50),UserType VARCHAR(20));
 INSERT INTO tblUsers VALUES
 (1,'Andres','Angulo','andres.angulo',1234,'Coordinador'),
 (2,'Andres','Lopez','andres.lopez',1234,'Docente');
+
+CREATE TABLE tblAsignaturas (codigo VARCHAR(100) PRIMARY KEY, nombreAsignatura VARCHAR(200))
+
+CREATE TABLE tblEmpleados (documento INT PRIMARY KEY NOT NULL, TipoDocumento VARCHAR(20),
+nombre VARCHAR(100), apellido VARCHAR(100), nombreUsuario VARCHAR(50), FechaNacimiento DATE, 
+Genero VARCHAR(10), Direccion VARCHAR(100), TelFijo INT, TelCelular INT, email VARCHAR(200), 
+cargo VARCHAR (20));
+
+CREATE TABLE tblAreas (idArea INT PRIMARY KEY, area VARCHAR(100), FK_IdCoordinador INT)
+
+CREATE TABLE tblGrupos (idGrupo INT AUTO_INCREMENT PRIMARY KEY, grupo VARCHAR(10), espacio VARCHAR(10), 
+dia VARCHAR(15), horaInicio VARCHAR(10), horaFin VARCHAR(10), Matriculados INT, FK_idDocente INT, 
+FK_idArea INT, FK_codAsignatura VARCHAR(100))
+
+CREATE TABLE tblGrupoInfo (id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,grupo VARCHAR(10), 
+asignatura VARCHAR(100), Matriculados INT, Aprobados INT, Reprobados INT, Mufor VARCHAR(100), 
+Concertacion VARCHAR(100))
+
+CREATE VIEW vw_area_coordinador
+AS
+SELECT a.idArea, a.area, u.Usuario
+FROM tblareas a
+INNER JOIN tblempleados e ON a.FK_IdCoordinador = e.documento
+INNER JOIN tblusers u ON e.documento = u.FK_idEmpleado
+
+CREATE VIEW vw_asignaturas_docente
+AS
+SELECT DISTINCT a.codigo, a.nombreAsignatura, g.grupo, g.Matriculados, u.Usuario
+FROM tblgrupos g
+INNER JOIN tblempleados e ON g.FK_idDocente = e.documento
+INNER JOIN tblusers u ON e.documento = u.FK_idEmpleado
+INNER JOIN tblasignaturas a ON a.codigo = g.FK_codAsignatura
+
+CREATE VIEW vw_Login
+AS
+SELECT u.Usuario, u.Pass, e.cargo
+FROM tblusers u
+INNER JOIN tblempleados e ON u.FK_idEmpleado = e.documento
+
+CREATE VIEW vw_asignaturas_area
+AS
+SELECT asg.codigo, asg.nombreAsignatura, a.area
+FROM tblgrupos g
+INNER JOIN tblareas a ON g.FK_idArea = a.idArea
+INNER JOIN tblasignaturas asg ON g.FK_codAsignatura = asg.codigo
+

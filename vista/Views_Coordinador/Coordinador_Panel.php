@@ -6,6 +6,8 @@
 	<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
   	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
   	<script type="text/javascript" src="../../js/jquery-ui.min.js"></script>
+  	<script type="text/javascript" src="../../js/Propios/panel.js"></script>
+  	<script type="text/javascript" src="../../js/Propios/Panel_coord.js"></script>
 </head>
 <body>
 <div class="container" style="border-top: none;
@@ -35,11 +37,25 @@
             <li><a href="#">Contáctenos</a></li>            
           </ul>
         </li>     
-      <li><a href="../../controlador/cerrarSesion.php" target="_blank"><span class="icon-clipboard"></span>SALIR</a></li>
+      <li><a href="../../controlador/cerrarSesion.php" ><span class="icon-clipboard"></span>SALIR</a></li>
       </ul>
 </div>
 <div id="content">
 	
 </div>
+<div class="container">
+<table class="table table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Area</th>
+      <th scope="col">Ver</th>
+    </tr>
+  </thead>
+  <tbody id="tabla">
+    
+  </tbody>
+</table>
+</div>
+
 </body>
 </html>

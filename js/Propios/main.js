@@ -11,7 +11,7 @@ jQuery(document).on('submit','#formlg',function(event){
 	.done(function(respuesta) {
 		//console.log(respuesta);
 		if (!respuesta.error) {
-			if(respuesta.type=='Coordinador'){
+			if(respuesta.type=='coordinador'){
 			//$('#btnlg').val("INGRESAR");
 			location.href='../vista/Views_Coordinador/Coordinador_Panel.php';
 			} else if (respuesta.type=='Docente'){
