@@ -13,6 +13,8 @@ $asignaturas = $mysqli->query("
 	}else{
 	echo json_encode(array('error' =>true));
 	}
+} elseif ($_POST['action']=='save') {
+	# code...
 }
 
 //WHERE user='".$_SESSION['username']."'

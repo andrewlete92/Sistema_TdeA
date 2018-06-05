@@ -15,7 +15,8 @@ function loadAreas(){
 			if(data !=null){
 				$.each(data, function(index,value){
 					var fila = "<tr><td>" + value.area + "</td><td>" + 
-					'<input type="button" id="' + value.idarea + '" class="btn btn-info" value="VER"/>'  + "</td></tr>";
+					'<input type="button" id="' + value.idArea + 
+					'" class="btn btn-info" value="VER"/>'  + "</td></tr>";
 					$("#tabla").append(fila);
 				});
 			}

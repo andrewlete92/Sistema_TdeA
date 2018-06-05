@@ -2,8 +2,20 @@ jQuery(document).ready(function() {loadAsignaturas();});
 
 jQuery(document).on('click', '.report', function(){
 	event.preventDefault();
-	alert("prueba");
+	//mostrar();
+	$("#txtCodAsignatura").val($(this).parents('tr').find('td').eq(0).text());
+	$("#txtAsignatura").val($(this).parents('tr').find('td').eq(1).text());
+	$("#txtGrupo").val($(this).parents('tr').find('td').eq(2).text());
+	$("#txtMatriculados").val($(this).parents('tr').find('td').eq(3).text());
+	$("#txtAprobados").val("");
+	$("#txtReprobados").val("");
 });
+
+jQuery(document).on('click', '#btnSave', function(){
+	event.preventDefault();
+	alert("Prueba guardar");
+});
+
 
 function loadAsignaturas(){
 	jQuery.ajax({
@@ -24,7 +36,7 @@ function loadAsignaturas(){
 					value.grupo + "</td><td>" + 
 					value.Matriculados + "</td><td>" + 
 					'<input type="button" id="' + value.grupo + 
-					'" class="btn btn-info report" value="REPORTAR"/>'  + "</td></tr>";
+					'" class="btn btn-info report" data-toggle="modal" data-target="#exampleModal" value="REPORTAR"/>'  + "</td></tr>";
 					$("#tabla").append(fila);
 				});
 			}
@@ -36,4 +48,16 @@ function loadAsignaturas(){
 	.always(function() {
 		console.log("complete");
 	});
+	$("#modal").load('../form_modal.html');
+}
+
+function saveGrupoInfo(){
+
+}
+
+function mostrar(){
+	$("#modal").load('../form_modal.html');
+		setTimeout(function(){
+		$(".modalpopup").modal();
+		},500);
 }

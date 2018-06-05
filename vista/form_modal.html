@@ -1,0 +1,60 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<div class="modal fade modalpopup" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><strong>Nuevo Registro</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Código Asignatura:</label>
+            <input type="text" class="form-control" id="txtCodAsignatura" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Asignatura:</label>
+            <input type="text" class="form-control" id="txtAsignatura" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Grupo:</label>
+            <input type="text" class="form-control" id="txtGrupo" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Matriculados:</label>
+            <input type="number" class="form-control" id="txtMatriculados" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Aprobados:</label>
+            <input type="number" class="form-control" id="txtAprobados" min="0">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Reprobados:</label>
+            <input type="number" class="form-control" id="txtReprobados" min="0">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">MUFOR:</label>
+            <input type="file" id="fileMufor">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Concertación:</label>
+            <input type="file" id="fileConcertacion">
+          </div>
+        </form>
+      </div>
+      <div id="modalInfo" role="dialog">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" id="btnSave" class="btn btn-primary">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>

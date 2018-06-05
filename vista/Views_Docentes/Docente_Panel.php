@@ -40,7 +40,7 @@
       <li><a href="../../controlador/cerrarSesion.php" target="_blank"><span class="icon-clipboard"></span>SALIR</a></li>
       </ul>
 </div>
-<div id="content">
+<div id="modal" role="dialog">
 	
 </div>
 <div class="container">
