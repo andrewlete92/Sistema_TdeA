@@ -19,9 +19,14 @@ jQuery(document).on('click', '.report', function(){
 
 jQuery(document).on('click', '#btnSave', function(){
 	event.preventDefault();
-	//saveFiles();
-	saveGrupoInfo();
-
+	aprobados = parseInt($("#txtAprobados").val());
+	reprobados = parseInt($("#txtReprobados").val());
+	if(aprobados+reprobados==matriculados){
+		saveFiles();
+		saveGrupoInfo();
+		} else {
+			alert("La cantidad de alumnos reprobados y aprobados no coincide con los matriculados, por favor revise.");
+		}
 });
 
 
@@ -77,8 +82,8 @@ jQuery.ajax({
 	})
 	.done(function(data){
 		//console.log(data);
-		if(data.dato!=null){
-			//console.log('Mufor guardado exitosamente');
+		if(!data.answ){
+			console.log('Mufor guardado exitosamente');
 			console.log(data);
 			//idMufor = dato.idArchivo;
 		}
@@ -88,14 +93,14 @@ jQuery.ajax({
 	});
 //SE GUARDAR EL OTRO ARCHIVO
 var inputFile2 = document.getElementById("fileConcer");
-var file = inputFile.files[0];
-var data = new FormData();
-data.append('archivoConcer',file);
+var file2 = inputFile2.files[0];
+var data2 = new FormData();
+data2.append('archivoConcer',file2);
 jQuery.ajax({
 	url:'../../controlador/uploadfiles.php',
 	type:'POST',
 	dataType: 'json',
-	data:data,
+	data:data2,
 	contentType:false,
 	processData:false,
 	cache:false
@@ -103,6 +108,7 @@ jQuery.ajax({
 	.done(function(data){
 		//console.log(data);
 		if(!data.answ){
+			console.log(data);
 			console.log('Concertacion guardado exitosamente');
 		}
 	})
