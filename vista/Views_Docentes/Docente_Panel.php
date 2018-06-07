@@ -44,6 +44,12 @@
 	
 </div>
 <div class="container">
+<div class="row">
+	<div class="col-lg-4">
+	<input type="text" placeholder="Buscar" class="form-control" id="buscar">		
+</div>
+</div>
+<br>
 <table class="table table-hover table-bordered">
   <thead class="thead-dark">
     <tr>

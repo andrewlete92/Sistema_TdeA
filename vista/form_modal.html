@@ -1,7 +1,14 @@
+<?php
+echo = $_FILES['fileMufor']['name'];
+?>
+
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/fileinput.min.css">
+<link rel="stylesheet" href="../css/fileinput-rtl.min.css">
 <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/fileinput.min.js"></script>
 
 <div class="modal fade modalpopup" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -13,48 +20,45 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form id="formGrupo" action="" enctype="multipart/form-data"><!-- method="POST" action="controlador/uploadfiles.php">-->
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Código Asignatura:</label>
-            <input type="text" class="form-control" id="txtCodAsignatura" disabled="true">
+            <input type="text" class="form-control" id="txtCodAsignatura" name="txtCodAsignatura" disabled="true">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Asignatura:</label>
-            <input type="text" class="form-control" id="txtAsignatura" disabled="true">
+            <input type="text" class="form-control" id="txtAsignatura" name="txtAsignatura" disabled="true">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Grupo:</label>
-            <input type="text" class="form-control" id="txtGrupo" disabled="true">
+            <input type="text" class="form-control" id="txtGrupo" name="txtGrupo" disabled="true">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Matriculados:</label>
-            <input type="number" class="form-control" id="txtMatriculados" disabled="true">
+            <input type="number" class="form-control" id="txtMatriculados" name="txtMatriculados" disabled="true">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Aprobados:</label>
-            <input type="number" class="form-control" id="txtAprobados" min="0">
+            <input type="number" class="form-control" id="txtAprobados" name="txtAprobados" min="0" >
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Reprobados:</label>
-            <input type="number" class="form-control" id="txtReprobados" min="0">
+            <input type="number" class="form-control" id="txtReprobados" name="txtReprobados" min="0">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">MUFOR:</label>
-            <input type="file" id="fileMufor">
+            <input type="file" id="fileMufor" name="fileMufor">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Concertación:</label>
-            <input type="file" id="fileConcertacion">
+            <input type="file" class="file" id="fileConcer" name="fileConcer">
           </div>
-        </form>
-      </div>
-      <div id="modalInfo" role="dialog">
-        
-      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" id="btnSave" class="btn btn-primary">GUARDAR</button>
+        <button type="button" id="btnSave" name="btnSave" class="btn btn-primary">Guardar</button>
       </div>
+    </form>
+    </div>
     </div>
   </div>
 </div>
