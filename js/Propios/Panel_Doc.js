@@ -22,20 +22,24 @@ jQuery(document).on('click', '.report', function(){
 	matriculados = $(this).parents('tr').find('td').eq(3).text();
 });
 
-jQuery(document).on('click', '#btnSave',async function(){
+jQuery(document).on('click', '#btnSave',function(){
 	event.preventDefault();
-	aprobados = parseInt($("#txtAprobados").val());
+	$('#modal').modal('hide');
+	/*aprobados = parseInt($("#txtAprobados").val());
 	reprobados = parseInt($("#txtReprobados").val());
 	if(aprobados+reprobados==matriculados){
 		if ($("#fileMufor").val().length>0 && $("#fileConcer").val().length>0) {
-			await saveFiles();
+			saveFiles();
+			setTimeout(function(){
 			saveGrupoInfo();
+			limpiar();
+			},1000);
 		} else {
 			alert("Es necesario adjuntar archivos para continuar");
 		}
 	} else {
 		alert("La cantidad de alumnos reprobados y aprobados no coincide con los matriculados, por favor revise.");
-	}
+	}*/
 });
 
 
@@ -150,7 +154,7 @@ jQuery.ajax({
 		console.log(data);
 		if(!data.answ){
 			alert('Registro guardado satisfactoriamente.');
-			$("#modal").modal('hide');
+			$('#modal').modal('hide');
 			//$('#formGrupo').reset();
 		} else {
 			alert('La información no se guardó');
@@ -179,4 +183,8 @@ function mostrar(){
 		setTimeout(function(){
 		$(".modalpopup").modal();
 		},500);
+}
+
+function limpiar(){
+	document.getElementById("exampleModal").reset();
 }

@@ -1,0 +1,68 @@
+CREATE DATABASE BdHotel
+
+CREATE TABLE tblclientes (
+  idCliente int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  nombre varchar(500),
+  tipo int NOT NULL,
+  documento varchar(50) UNIQUE KEY,
+  telefono int NOT NULL,
+  email varchar(500),
+  hospedaje int NOT NULL
+) 
+
+CREATE TABLE `tblreservas` (
+  `idReservas` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `cliente` varchar(500) NOT NULL,
+  `tipo` int NOT NULL,
+  `documento` varchar(50) NOT NULL,
+  `telefono` int NOT NULL,
+  `numHabitacion` int NOT NULL,
+  `num_acompanantes` int NOT NULL,
+  `fecha_ingreso` VARCHAR (20) NOT NULL,
+  `fecha_salida` VARCHAR (20) NOT NULL,
+  `noches` int NOT NULL,
+  `tipo_habitacion` VARCHAR (20) NOT NULL,
+  `es_reserva` int NOT NULL,
+  `numFactura` int, 
+  `estado` int
+)
+
+CREATE TABLE `tblhabitaciones` (
+  
+`idHabitaciones` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  
+`num_habitacion` int NOT NULL,
+  
+`capacidad` int NOT NULL,
+  
+`tipo_habitacion` varchar(20) NOT NULL,
+  
+`estado` int NOT NULL,
+  
+`precio_noche` decimal(10,0) NOT NULL
+
+)
+
+CREATE TABLE `tblfacturas` (
+  `Idfacturas` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `Numero_factura` varchar(500) NOT NULL,
+  `Cliente` VARCHAR (500)NOT NULL,
+  `Documento` varchar(50) NOT NULL,
+  `Cantidad_habitaciones` int NOT NULL,
+  `Descuento` int NOT NULL,
+  `Totalfactura` int NOT NULL)
+
+//ALTER TABLE tblfacturas AUTO_INCREMENT = 1000
+
+INSERT INTO tblhabitaciones (idHabitaciones, num_Habitacion, capacidad, tipo_Habitacion, precio_noche,estado) VALUES
+
+(DEFAULT, 101, 2, 'Suite', 215000,0),
+
+(DEFAULT, 102, 2, 'Suite', 215000,0),
+
+(DEFAULT, 103, 2, 'Estándar', 132000,0),
+
+(DEFAULT, 104, 3, 'Estándar', 180000,0),
+(DEFAULT, 105, 4, 'Estándar', 230000,0),
+
+(DEFAULT, 106, 4, 'Estándar', 230000,0)

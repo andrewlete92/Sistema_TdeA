@@ -59,6 +59,7 @@ function findArea(id){
 			} 
 		} else {
 			alert("No se encontraron grupos creados para su área");
+			$("#tabla").empty();
 		}
 	});
 }
