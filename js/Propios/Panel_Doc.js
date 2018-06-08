@@ -17,21 +17,25 @@ jQuery(document).on('click', '.report', function(){
 	matriculados = $(this).parents('tr').find('td').eq(3).text();
 });
 
-jQuery(document).on('click', '#btnSave', function(){
+jQuery(document).on('click', '#btnSave',async function(){
 	event.preventDefault();
 	aprobados = parseInt($("#txtAprobados").val());
 	reprobados = parseInt($("#txtReprobados").val());
 	if(aprobados+reprobados==matriculados){
-		saveFiles();
-		saveGrupoInfo();
+		if ($("#fileMufor").val().length>0 && $("#fileConcer").val().length>0) {
+			await saveFiles();
+			saveGrupoInfo();
 		} else {
-			alert("La cantidad de alumnos reprobados y aprobados no coincide con los matriculados, por favor revise.");
+			alert("Es necesario adjuntar archivos para continuar");
 		}
+	} else {
+		alert("La cantidad de alumnos reprobados y aprobados no coincide con los matriculados, por favor revise.");
+	}
 });
 
 
 function loadAsignaturas(){
-	jQuery.ajax({
+jQuery.ajax({
 	url: '../../controlador/Panel_doc.php',
 	type: 'POST',
 	dataType: 'json',

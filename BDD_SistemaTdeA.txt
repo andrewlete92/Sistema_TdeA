@@ -49,3 +49,13 @@ FROM tblgrupos g
 INNER JOIN tblareas a ON g.FK_idArea = a.idArea
 INNER JOIN tblasignaturas asg ON g.FK_codAsignatura = asg.codigo
 
+CREATE VIEW vw_asignaturas_coordinador
+AS
+SELECT DISTINCT gi.grupo, gi.asignatura, gi.Matriculados, gi.Aprobados, gi.Reprobados, arch.nombre AS Mufor, arch1.nombre AS Concertacion, ar.idArea, ar.area
+FROM tblgrupoinfo gi 
+INNER JOIN tblasignaturas a ON gi.asignatura = a.nombreAsignatura
+INNER JOIN tblgrupos g ON g.FK_codAsignatura = a.codigo
+INNER JOIN tblareas ar ON g.FK_idArea = ar.idArea
+INNER JOIN tblarchivos arch ON arch.idArchivo = gi.Mufor
+INNER JOIN tblarchivos arch1 ON arch1.idArchivo = gi.Concertacion
+

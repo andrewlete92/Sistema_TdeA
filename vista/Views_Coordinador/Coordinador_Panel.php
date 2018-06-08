@@ -40,19 +40,32 @@
       <li><a href="../../controlador/cerrarSesion.php" ><span class="icon-clipboard"></span>SALIR</a></li>
       </ul>
 </div>
-<div id="content">
-	
-</div>
 <div class="container">
+<div class="row">
+    <div class="col-lg-4">
+      <select class="form-control" id="SelectArea">
+          <option value="0">Seleccione Area</option>   
+      </select>
+    </div>
+    <div class="col">
+      <button class="btn btn-primary" id="ver">VER</button>
+    </div>
+</div>
+<br>
 <table class="table table-hover table-bordered">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Area</th>
-      <th scope="col">Ver</th>
+      <th scope="col">Grupo</th>
+      <th scope="col">Asignatura</th>
+      <th scope="col">Matriculados</th>
+      <th scope="col">Aprobados</th>
+      <th scope="col">Reprobados</th>
+      <th scope="col">Mufor</th>
+      <th scope="col">Concertación</th>
     </tr>
   </thead>
   <tbody id="tabla">
-    
+  
   </tbody>
 </table>
 </div>

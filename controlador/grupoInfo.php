@@ -16,13 +16,14 @@ if($_POST['action']=='insert'){
 	$concer = $mysqli->query("SELECT idArchivo FROM tblArchivos WHERE nombre = '$nomConcer' AND typeArch = 'Concertacion'");
 	$concerId = $concer->fetch_object();
 	$idArchivoConcer = $concerId->idArchivo;
-	$sql = "INSERT INTO tblGrupoInfo VALUES (grupo, asignatura, matriculados, aprobados, reprobados, mufor, concertacion)
-	('$grupo', '$asignatura', '$matriculados', '$aprobados','$reprobados','$idArchivoMufor','$idArchivoConcer')";
+	$sql = "INSERT INTO tblGrupoInfo (grupo, asignatura, Matriculados, Aprobados, Reprobados, Mufor, Concertacion )
+	VALUES ('$grupo', '$asignatura', '$matriculados', '$aprobados','$reprobados', $idArchivoMufor, $idArchivoConcer)";
 	if(mySqli_query($mysqli,$sql)){
 		echo json_encode(array('answ' =>false));
 	} else {
 		echo json_encode(array('answ' =>true));
 	}
+	//echo json_encode(array('answ' =>$reprobados));
 } 
 
 $mysqli->close();
