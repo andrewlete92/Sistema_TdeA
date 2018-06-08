@@ -1,6 +1,9 @@
 var codAsignatura, asignatura, grupo, matriculados;
 
-jQuery(document).ready(function() {loadAsignaturas();});
+jQuery(document).ready(function() {
+	loadAsignaturas();
+	filtrar();
+});
 
 jQuery(document).on('click', '.report', function(){
 	event.preventDefault();
@@ -11,6 +14,8 @@ jQuery(document).on('click', '.report', function(){
 	$("#txtMatriculados").val($(this).parents('tr').find('td').eq(3).text());
 	$("#txtAprobados").val("");
 	$("#txtReprobados").val("");
+	$("#fileMufor").val("");
+	$("#fileConcer").val("");
 	codAsignatura = $(this).parents('tr').find('td').eq(0).text();
 	asignatura = $(this).parents('tr').find('td').eq(1).text();
 	grupo = $(this).parents('tr').find('td').eq(2).text();
@@ -145,6 +150,7 @@ jQuery.ajax({
 		console.log(data);
 		if(!data.answ){
 			alert('Registro guardado satisfactoriamente.');
+			$("#modal").modal('hide');
 			//$('#formGrupo').reset();
 		} else {
 			alert('La información no se guardó');
@@ -154,6 +160,18 @@ jQuery.ajax({
 		console.log(fail);
 		//alert('Se presentó un problema y la información no se guardó.');
 	});
+}
+
+function filtrar(){
+	(function ($) {
+        $('#buscar').keyup(function () {
+          var rex = new RegExp($(this).val(), 'i');
+          $('.search tr').hide();
+          $('.search tr').filter(function () {
+          return rex.test($(this).text());
+          }).show();
+        })
+    }(jQuery));
 }
 
 function mostrar(){

@@ -51,11 +51,31 @@ INNER JOIN tblasignaturas asg ON g.FK_codAsignatura = asg.codigo
 
 CREATE VIEW vw_asignaturas_coordinador
 AS
-SELECT DISTINCT gi.grupo, gi.asignatura, gi.Matriculados, gi.Aprobados, gi.Reprobados, arch.nombre AS Mufor, arch1.nombre AS Concertacion, ar.idArea, ar.area
+SELECT DISTINCT gi.grupo, gi.asignatura, gi.Matriculados, gi.Aprobados, 
+gi.Reprobados, arch.nombre AS Mufor, arch1.nombre AS Concertacion, ar.idArea, ar.area
 FROM tblgrupoinfo gi 
 INNER JOIN tblasignaturas a ON gi.asignatura = a.nombreAsignatura
 INNER JOIN tblgrupos g ON g.FK_codAsignatura = a.codigo
 INNER JOIN tblareas ar ON g.FK_idArea = ar.idArea
 INNER JOIN tblarchivos arch ON arch.idArchivo = gi.Mufor
 INNER JOIN tblarchivos arch1 ON arch1.idArchivo = gi.Concertacion
+
+CREATE VIEW vw_asignaturas_coordinador
+AS
+SELECT DISTINCT g.grupo, a.nombreAsignatura as Asignatura, g.Matriculados, 
+CASE WHEN gi.Aprobados IS NULL THEN 0 ELSE gi.Aprobados END AS Aprobados, 
+CASE WHEN gi.Reprobados IS NULL THEN 0 ELSE gi.Reprobados END AS Reprobados, 
+CASE WHEN ar.nombre IS NULL THEN 'sinArchivo.jpg' END AS Mufor, 
+CASE WHEN ar1.nombre IS NULL THEN 'sinArchivo.jpg' END AS Concertacion, are.idArea, are.area
+FROM tblasignaturas a
+INNER JOIN tblgrupos g ON a.codigo = g.FK_codAsignatura
+INNER JOIN tblareas are ON are.idArea = g.FK_idArea
+LEFT JOIN tblgrupoinfo gi ON a.nombreAsignatura = gi.asignatura AND g.grupo = gi.grupo
+LEFT JOIN tblarchivos ar ON gi.Mufor = ar.idArchivo
+LEFT JOIN tblarchivos ar1 ON gi.Concertacion = ar1.idArchivo
+
+SELECT Asignatura, area,SUM(Matriculados) As TotalMatriculados, SUM(Aprobados) AS TotalAprobados, SUM(Reprobados) AS TotalReprobados
+FROM vw_asignaturas_coordinador
+GROUP BY Asignatura, area
+ORDER BY 3 DESC
 

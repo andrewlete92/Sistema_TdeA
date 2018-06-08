@@ -47,8 +47,11 @@
           <option value="0">Seleccione Area</option>   
       </select>
     </div>
-    <div class="col">
+    <div class="col-lg-4">
       <button class="btn btn-primary" id="ver">VER</button>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" placeholder="Buscar" class="form-control" id="buscar"> 
     </div>
 </div>
 <br>
@@ -64,7 +67,7 @@
       <th scope="col">Concertación</th>
     </tr>
   </thead>
-  <tbody id="tabla">
+  <tbody id="tabla" class="search">
   
   </tbody>
 </table>

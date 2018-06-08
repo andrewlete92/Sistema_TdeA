@@ -1,17 +1,18 @@
 <?php 
 require 'conexion.php';
-
+session_start();
 if($_POST['action']=='load'){
+$usuario = $_SESSION['username'];
 $asignaturas = $mysqli->query("
 	SELECT *
-	FROM vw_asignaturas_docente");
-	//WHERE Usuario =".$_SESSION['username']);
+	FROM vw_asignaturas_docente
+	WHERE Usuario ='$usuario'");
 
 	if ($asignaturas->num_rows!=null){
 	$data = $asignaturas->fetch_all(MYSQLI_ASSOC);
 	echo json_encode($data);
 	}else{
-	echo json_encode(array('error' =>true));
+	echo json_encode(array('error' =>$usuario));
 	}
 } elseif ($_POST['action']=='save') {
 	# code...

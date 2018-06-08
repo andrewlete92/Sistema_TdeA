@@ -1,4 +1,7 @@
-jQuery(document).ready(function() {cargarSelect();});
+jQuery(document).ready(function() {
+	cargarSelect();
+	filtrar();
+});
 
 
 jQuery(document).on('click', '#ver',function(){
@@ -45,20 +48,29 @@ function findArea(id){
 			if(data !=null){
 				$.each(data, function(index,value){
 					var fila = "<tr><td>" + value.grupo + "</td><td>" + 
-					value.asignatura + "</td><td>" + 
+					value.Asignatura + "</td><td>" + 
 					value.Matriculados + "</td><td>" + 
 					value.Aprobados + "</td><td>" + 
 					value.Reprobados + "</td><td>" + 
 					'<a href="../../archivos/MUFOR/' + value.Mufor + '" target="_blank">VER</a>' + "</td><td>" + 
 					'<a href="../../archivos/CONCERTACION/' + value.Concertacion + '" target="_blank">VER</a>' + "</td></tr>";
-					//value.Concertacion + "</td></tr>"; 
-					/*'<input type="button" id="' + value.grupo + 
-					'" class="btn btn-info report" data-toggle="modal" data-target="#exampleModal" value="REPORTAR"/>'  + "</td></tr>";*/
 					$("#tabla").append(fila);
 				});
 			} 
 		} else {
-			alert("Prueba");
+			alert("No se encontraron grupos creados para su área");
 		}
 	});
+}
+
+function filtrar(){
+	(function ($) {
+        $('#buscar').keyup(function () {
+          var rex = new RegExp($(this).val(), 'i');
+          $('.search tr').hide();
+          $('.search tr').filter(function () {
+          return rex.test($(this).text());
+          }).show();
+        })
+    }(jQuery));
 }

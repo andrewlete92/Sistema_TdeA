@@ -37,7 +37,7 @@
             <li><a class="action" href="#">Contáctenos</a></li>            
           </ul>
         </li>     
-      <li><a href="../../controlador/cerrarSesion.php" target="_blank"><span class="icon-clipboard"></span>SALIR</a></li>
+      <li><a href="../../controlador/cerrarSesion.php"><span class="icon-clipboard"></span>SALIR</a></li>
       </ul>
 </div>
 <div id="modal" role="dialog">
@@ -60,7 +60,7 @@
       <th scope="col">Acciones</th>
     </tr>
   </thead>
-  <tbody id="tabla">
+  <tbody id="tabla" class="search">
     
   </tbody>
 </table>

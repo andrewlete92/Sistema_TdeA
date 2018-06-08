@@ -1,11 +1,12 @@
 <?php 
 require 'conexion.php';
-
+session_start();
 if($_POST['action']=='load'){
+$usuario = $_SESSION['username'];
 	$areas = $mysqli->query("
 	SELECT * 
-	FROM vw_area_coordinador");
-	//WHERE user='".$_SESSION['username']."'");
+	FROM vw_area_coordinador
+	WHERE Usuario='$usuario'");
 	if ($areas->num_rows!=null){
 	$data = $areas->fetch_all(MYSQLI_ASSOC);
 	echo json_encode($data);
