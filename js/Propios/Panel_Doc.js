@@ -24,22 +24,22 @@ jQuery(document).on('click', '.report', function(){
 
 jQuery(document).on('click', '#btnSave',function(){
 	event.preventDefault();
-	$('#modal').modal('hide');
-	/*aprobados = parseInt($("#txtAprobados").val());
+	//$('#modal').modal('hide');
+	aprobados = parseInt($("#txtAprobados").val());
 	reprobados = parseInt($("#txtReprobados").val());
 	if(aprobados+reprobados==matriculados){
 		if ($("#fileMufor").val().length>0 && $("#fileConcer").val().length>0) {
 			saveFiles();
 			setTimeout(function(){
 			saveGrupoInfo();
-			limpiar();
+			//limpiar();
 			},1000);
 		} else {
 			alert("Es necesario adjuntar archivos para continuar");
 		}
 	} else {
 		alert("La cantidad de alumnos reprobados y aprobados no coincide con los matriculados, por favor revise.");
-	}*/
+	}
 });
 
 
